@@ -1,0 +1,43 @@
+class Program
+{
+    static void Main()
+    {
+        NumberPair pair = new NumberPair();
+        pair.number1 = 20;
+        pair.number2 = 5;
+        pair.Print();
+        pair.ChangeValues(19, 8);
+        pair.Print();
+        pair.Difference();
+        pair.MinValue();
+    }
+}
+
+class NumberPair
+{
+    public int number1;
+    public int number2;
+
+    public void Print()
+    {
+        Console.WriteLine($"Число 1: {number1}, Число 2: {number2}");
+    }
+
+    public void ChangeValues(int num1, int num2)
+    {
+        this.number1 = num1;
+        this.number2 = num2;
+        Console.WriteLine($"Значения изменены на: {num1} и {num2}");
+    }
+
+    public void Difference()
+    {
+        int diff = Math.Abs(number1 - number2);
+        Console.WriteLine($"Разность значений: {diff}");
+    }
+
+    public void MinValue()
+    {
+        Console.WriteLine($"Минимальное значение: {Math.Min(number1, number2)}");
+    }
+}
