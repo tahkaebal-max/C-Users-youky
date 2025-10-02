@@ -1,0 +1,74 @@
+class Program
+{
+    static void Main()
+    {
+        DecimalCounter counter = new DecimalCounter(0, 5, 2);
+        counter.PrintCurrentValue();
+
+        counter.Increment(); // 3
+        counter.Increment(); // 4
+        counter.Increment(); // 5
+        counter.Increment(); // Достигнут максимум
+
+        counter.Decrement(); // 4
+        counter.Decrement(); // 3
+        counter.Decrement(); // 2
+        counter.Decrement(); // 1
+        counter.Decrement(); // 0
+        counter.Decrement(); // Достигнут минимум
+    }
+}
+class DecimalCounter
+{
+    private int currentValue;
+    private int minValue;
+    private int maxValue;
+
+    public DecimalCounter(int min = 0, int max = 10, int start = 0)
+    {
+        minValue = min;
+        maxValue = max;
+
+        if (start >= minValue && start <= maxValue)
+        {
+            currentValue = start;
+        }
+        else
+        {
+            currentValue = minValue;
+            Console.WriteLine("Начальное значение вне диапазона. Установлено минимальное значение.");
+        }
+    }
+
+    public void Increment()
+    {
+        if (currentValue < maxValue)
+        {
+            currentValue++;
+            Console.WriteLine($"Значение увеличено до: {currentValue}");
+        }
+        else
+        {
+            Console.WriteLine("Достигнуто максимальное значение. Увеличение невозможно.");
+        }
+    }
+
+    public void Decrement()
+    {
+        if (currentValue > minValue)
+        {
+            currentValue--;
+            Console.WriteLine($"Значение уменьшено до: {currentValue}");
+        }
+        else
+        {
+            Console.WriteLine("Достигнуто минимальное значение. Уменьшение невозможно.");
+        }
+    }
+
+    public void PrintCurrentValue()
+    {
+        Console.WriteLine($"Текущее значение счетчика: {currentValue}");
+        Console.WriteLine($"Диапазон: от {minValue} до {maxValue}");
+    }
+}
