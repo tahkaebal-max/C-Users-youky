@@ -1,0 +1,37 @@
+class GeometryApp
+{
+    static void Main() 
+    {
+        TriAngle figure = new TriAngle();
+        
+        Console.Write("Укажите размер первой стороны: ");
+        figure.Side1 = Convert.ToDouble(Console.ReadLine());
+        
+        Console.Write("Укажите размер второй стороны: ");
+        figure.Side2 = Convert.ToDouble(Console.ReadLine());
+        
+        Console.Write("Укажите размер третьей стороны: ");
+        figure.Side3 = Convert.ToDouble(Console.ReadLine());
+        
+        figure.ValidateExistence();
+    }
+}
+
+class TriAngle
+{
+    public double Side1;
+    public double Side2;
+    public double Side3;
+    
+    public void ValidateExistence()
+    {
+        if (Side1 + Side2 > Side3 && Side1 + Side3 > Side2 && Side2 + Side3 > Side1)
+        {
+            Console.WriteLine("Фигура соответствует условиям существования треугольника");
+        }
+        else
+        {
+            Console.WriteLine("Создание треугольника с указанными параметрами невозможно");
+        }
+    }
+}

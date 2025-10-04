@@ -1,0 +1,49 @@
+class LibraryApp
+{
+    static void Main()
+    {
+        Literature work1 = new Literature();
+        work1.Name = "мертвые души";
+        work1.Writer = "Николай Васильевич Гоголь";
+        work1.Identifier = "345-0-344-3453-00-1";
+        work1.PageCount = 3457;
+        work1.ShowDetails();
+        work1.EvaluateVolume();
+
+        Literature work2 = new Literature();
+        work2.Name = "Вопросы жизни. Дневник старого врача";
+        work2.Writer = "Николай Иванович Пирогов";
+        work2.Identifier = "666-4-345-1222-00-2";
+        work2.PageCount = 167;
+        work2.ShowDetails();
+        work2.EvaluateVolume();
+    }
+}
+
+class Literature
+{
+    public string Name;
+    public string Writer;
+    public string Identifier;
+    public int PageCount;
+
+    public void ShowDetails()
+    {
+        Console.WriteLine($"Название произведения: {Name}");
+        Console.WriteLine($"Автор произведения: {Writer}");
+        Console.WriteLine($"Идентификатор: {Identifier}");
+        Console.WriteLine($"Количество страниц: {PageCount}");
+    }
+
+    public void EvaluateVolume()
+    {
+        if (PageCount > 500)
+        {
+            Console.WriteLine("Объемное издание");
+        }
+        else
+        {
+            Console.WriteLine("Компактное издание");
+        }
+    }
+}

@@ -1,0 +1,53 @@
+class BankingSystem
+{
+    static void Main()
+    {
+        Account clientAcc = new Account();
+        clientAcc.AccountId = "666777888999";
+        clientAcc.Holder = "Василий Юрьевич";
+        clientAcc.Funds = 2000;
+        clientAcc.DisplayStatus();
+
+        clientAcc.AddFunds(200);
+        clientAcc.DisplayStatus();
+
+        clientAcc.TakeFunds(600);
+        clientAcc.DisplayStatus();
+
+        clientAcc.TakeFunds(4000);
+        clientAcc.DisplayStatus();
+    }
+}
+
+class Account
+{
+    public string AccountId;
+    public string Holder;
+    public double Funds;
+
+    public void DisplayStatus()
+    {
+        Console.WriteLine($"Номер счета: {AccountId}");
+        Console.WriteLine($"Держатель счета: {Holder}");
+        Console.WriteLine($"Текущий баланс: {Funds} руб.");
+    }
+
+    public void AddFunds(double sum)
+    {
+        Funds += sum;
+        Console.WriteLine($"Пополнение на сумму: {sum} руб.");
+    }
+
+    public void TakeFunds(double sum)
+    {
+        if (sum <= Funds)
+        {
+            Funds -= sum;
+            Console.WriteLine($"Списание средств: {sum} руб.");
+        }
+        else
+        {
+            Console.WriteLine("Операция отклонена: недостаточно денежных средств");
+        }
+    }
+}

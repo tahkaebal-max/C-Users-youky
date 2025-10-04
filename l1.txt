@@ -1,0 +1,41 @@
+class ShapeCalculator
+{
+    static void Main()
+    {
+        RoundFigure figure1 = new RoundFigure();
+        figure1.DiameterHalf = 15;
+        figure1.DisplayDetails();
+        figure1.ComputeArea();
+        figure1.ComputeBoundaryLength();
+
+        Console.WriteLine();
+
+        RoundFigure figure2 = new RoundFigure();
+        figure2.DiameterHalf = 5.5;
+        figure2.DisplayDetails();
+        figure2.ComputeArea();
+        figure2.ComputeBoundaryLength();
+    }
+}
+
+class RoundFigure
+{
+    public double DiameterHalf;
+
+    public void DisplayDetails()
+    {
+        Console.WriteLine($"Окружность с радиусом: {DiameterHalf}");
+    }
+
+    public void ComputeArea()
+    {
+        double surface = Math.PI * DiameterHalf * DiameterHalf;
+        Console.WriteLine($"Вычисленная площадь: {surface:F2}");
+    }
+
+    public void ComputeBoundaryLength()
+    {
+        double boundary = 2 * Math.PI * DiameterHalf;
+        Console.WriteLine($"Протяженность границы: {boundary:F2}");
+    }
+}
